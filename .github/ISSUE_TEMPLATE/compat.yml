@@ -1,0 +1,114 @@
+name: 兼容性实测数据
+description: 提交 ICON / E01 车机的实测结果
+title: "[Compat] <一句话结论>"
+labels: ["compatibility"]
+body:
+  - type: markdown
+    value: |
+      **提交前请完成脱敏检查**：删除蓝牙 MAC、车辆 VIN、热点名称与密码、手机号、Apple ID、任何凭据或私钥内容。
+      测试全程请在驻车状态下完成。
+      失败结果同样重要——请务必写清失败发生在哪个阶段。
+
+  - type: input
+    id: car
+    attributes:
+      label: 车型与车机型号*
+      description: 例：吉利 ICON 2020 款 300T DCT / E01
+    validations:
+      required: true
+
+  - type: input
+    id: firmware
+    attributes:
+      label: 系统版本完整串*
+      placeholder: "09.02.10300.H10.00002"
+    validations:
+      required: true
+
+  - type: input
+    id: android
+    attributes:
+      label: 安卓版本*
+      placeholder: "5.1"
+    validations:
+      required: true
+
+  - type: input
+    id: resolution
+    attributes:
+      label: 屏幕分辨率
+      placeholder: "1920x720"
+    validations:
+      required: false
+
+  - type: input
+    id: iphone
+    attributes:
+      label: iPhone 机型与精确 iOS 版本*
+      placeholder: "iPhone 13 / iOS 18.7.1"
+    validations:
+      required: true
+
+  - type: input
+    id: apk
+    attributes:
+      label: 被测 APK 版本与 SHA256*
+      placeholder: "DiPlay-Legacy-Android-v0.2.7.apk / <sha256>"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: connection
+    attributes:
+      label: 连接方式*
+      options:
+        - 有线 USB
+        - 无线（手动内置热点）
+        - 两者都试了
+    validations:
+      required: true
+
+  - type: dropdown
+    id: stage
+    attributes:
+      label: 进展到哪个阶段*
+      description: 失败在哪一步，直接决定下一步往哪查
+      options:
+        - 装不上（解析失败）
+        - 装上了但启动闪退
+        - 启动成功但搜不到手机
+        - 搜到手机但握手失败
+        - 出画面但无触控
+        - 出画面但无声音
+        - 画面声音都有（成功）
+        - 成功后断开无法重连
+    validations:
+      required: true
+
+  - type: textarea
+    id: result
+    attributes:
+      label: 测试结果*
+      description: |
+        请按 docs/TESTING.md 清单逐项说明：
+        装包 / 启动 / 出画面 / 触控 / 音乐有声 / 导航有声 / Siri / 通话 / 断连重连 各自是否通过。
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 诊断报告或日志
+      description: |
+        设置 → 诊断 → 保存诊断报告，附上去敏后的 .txt。
+        若导出失败，请描述失败发生的精确时间与前置操作。
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: desensitize
+    attributes:
+      label: 脱敏确认*
+      options:
+        - label: 我已删除蓝牙 MAC、VIN、热点名称与密码、手机号、Apple ID 及所有凭据内容
+          required: true

@@ -1,0 +1,99 @@
+name: 缺陷报告
+description: 报告一个可复现的问题
+title: "[Bug] <一句话现象>"
+labels: ["bug"]
+body:
+  - type: markdown
+    value: |
+      **提交前请脱敏**：删除蓝牙 MAC、VIN、热点名称与密码、手机号、Apple ID。
+      请注明失败发生的**精确时间**，便于与日志对应。
+
+  - type: input
+    id: car
+    attributes:
+      label: 车型与车机型号*
+    validations:
+      required: true
+
+  - type: input
+    id: firmware
+    attributes:
+      label: 系统版本完整串与安卓版本*
+      placeholder: "09.02.10300.H10.00002 / 5.1"
+    validations:
+      required: true
+
+  - type: input
+    id: apk
+    attributes:
+      label: 被测 APK 版本与 SHA256*
+    validations:
+      required: true
+
+  - type: input
+    id: iphone
+    attributes:
+      label: iPhone 机型与精确 iOS 版本*
+    validations:
+      required: true
+
+  - type: dropdown
+    id: connection
+    attributes:
+      label: 连接方式*
+      options:
+        - 有线 USB
+        - 无线（手动内置热点）
+    validations:
+      required: true
+
+  - type: dropdown
+    id: stage
+    attributes:
+      label: 失败阶段*
+      options:
+        - 装不上（解析失败）
+        - 启动闪退
+        - 搜不到手机
+        - 握手失败
+        - 出画面但无触控
+        - 出画面但无声音
+        - 断开无法重连
+        - 倒车/切页面后不恢复
+        - 其他
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤*
+      description: 请写清每一步操作、预期结果与实际结果
+    validations:
+      required: true
+
+  - type: input
+    id: failtime
+    attributes:
+      label: 失败发生的精确时间*
+      placeholder: "2026-10-08 20:14"
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 诊断报告或 logcat
+      description: |
+        设置 → 诊断 → 保存诊断报告；或 adb logcat 抓取。
+        附上前请务必去敏。
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: desensitize
+    attributes:
+      label: 脱敏确认*
+      options:
+        - label: 我已删除所有个人信息与凭据内容
+          required: true

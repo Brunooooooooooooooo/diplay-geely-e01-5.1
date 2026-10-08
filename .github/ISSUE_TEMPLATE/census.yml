@@ -1,0 +1,147 @@
+name: 固件普查样本
+description: 提交你的 E01 车机固件信息（不写代码也能参与，最重要的一份贡献）
+title: "[Census] <车型年款> / <安卓版本>"
+labels: ["firmware-census"]
+body:
+  - type: markdown
+    value: |
+      感谢参与！这一步不需要写代码，填完即可。
+      信息在车机 **设置 → 关于本机**，建议先拍照再照着填。
+      **提交前请删除蓝牙 MAC、VIN、热点名称与密码。**
+
+  - type: input
+    id: car
+    attributes:
+      label: 车型与具体配置*
+      description: 例：吉利 ICON 2020 款 300T DCT 银河限量版
+    validations:
+      required: true
+
+  - type: input
+    id: buydate
+    attributes:
+      label: 生产或购车时间
+      placeholder: "2020 年 5 月"
+    validations:
+      required: false
+
+  - type: input
+    id: firmware
+    attributes:
+      label: 系统版本（完整串）*
+      description: 最关键的一项。形如 09.02.10300.H10.00002，请在关于本机页完整抄下来
+    validations:
+      required: true
+
+  - type: input
+    id: android
+    attributes:
+      label: 安卓版本*
+      placeholder: "5.1"
+    validations:
+      required: true
+
+  - type: input
+    id: hardware
+    attributes:
+      label: 硬件版本
+    validations:
+      required: false
+
+  - type: input
+    id: mcu
+    attributes:
+      label: MCU 版本
+    validations:
+      required: false
+
+  - type: input
+    id: resolution
+    attributes:
+      label: 屏幕分辨率
+      placeholder: "1920x720"
+    validations:
+      required: false
+
+  - type: input
+    id: cpu
+    attributes:
+      label: CPU 平台（如有）
+    validations:
+      required: false
+
+  - type: dropdown
+    id: rooted
+    attributes:
+      label: 是否已 root
+      options:
+        - 否
+        - 是
+        - 未尝试
+    validations:
+      required: false
+
+  - type: dropdown
+    id: caninstall
+    attributes:
+      label: 能否安装第三方 APK*
+      options:
+        - 是
+        - 否
+        - 未尝试
+    validations:
+      required: true
+
+  - type: dropdown
+    id: installmethod
+    attributes:
+      label: 安装方式（若已成功安装）
+      options:
+        - U盘
+        - ADB
+        - 文件管理器
+        - 工程模式
+        - 其他（请在备注说明）
+        - 尚未安装
+    validations:
+      required: false
+
+  - type: dropdown
+    id: band
+    attributes:
+      label: 车机热点频段
+      options:
+        - 2.4G
+        - 5G
+        - 两者可选
+        - 无此选项
+        - 未确认
+    validations:
+      required: false
+
+  - type: dropdown
+    id: usbdata
+    attributes:
+      label: USB 口是否支持数据传输*
+      options:
+        - 是
+        - 否
+        - 未确认
+    validations:
+      required: true
+
+  - type: input
+    id: iphone
+    attributes:
+      label: iPhone 机型与精确 iOS 版本
+      placeholder: "iPhone 13 / iOS 18.7.1"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: desensitize
+    attributes:
+      label: 脱敏确认*
+      options:
+        - label: 我已删除蓝牙 MAC、VIN、热点名称与密码等个人信息
+          required: true

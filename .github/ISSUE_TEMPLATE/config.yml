@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 固件普查（最重要，先做这个）
+    url: https://github.com/Brunooooooooooooooo/diplay-geely-e01-5.1/issues/new?template=census.yml
+    about: 不写代码也能参与。提交你的车机固件信息，帮我们摸清 E01 有几个分支。
+  - name: 测试清单
+    url: https://github.com/Brunooooooooooooooo/diplay-geely-e01-5.1/blob/main/docs/TESTING.md
+    about: 装完包之后按这份清单逐项验证，失败也要提交。
+  - name: 4.3 车机看这里（不是本仓库主线）
+    url: https://github.com/xikai6282/DiPlay-Geely-Android43
+    about: 如果你的 ICON 是 2020 年 6 月前生产、安卓版本为 4.3，请转这个仓库。
