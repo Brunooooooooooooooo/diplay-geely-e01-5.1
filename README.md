@@ -15,7 +15,7 @@
 | `programmerguohuajing/DiPlay-Legacy-Android` | Android 4.4+ / API 19，手动热点无线 | **v0.2.7 理论上可安装**，但无任何非比亚迪车机的公开验证记录 |
 | `xikai6282/DiPlay-Geely-Android43` | 博瑞 H52 / i.MX6 / **Android 4.3** | 目标版本与 E01 的 5.1 不一致，其固件桥接不适用于 E01 |
 
-三者都不覆盖 **ICON / E01 / Android 5.1** 这一格。这不是重复劳动，是补空。
+三者都不覆盖 **ICON / E01 / Android 5.1**。
 
 **重要提醒：吉利 ICON 2020 款存在两个批次**——2020 年 6 月前生产的多为 Android 4.3，之后为 5.1。本仓库主线服务 **5.1（API 22）**；4.3 车主请先看 `xikai6282/DiPlay-Geely-Android43`，并在固件普查表中注明你的分支。
 
